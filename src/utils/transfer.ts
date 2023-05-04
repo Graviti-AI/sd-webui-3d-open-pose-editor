@@ -115,7 +115,7 @@ export async function uploadJson() {
             else reject("Don't select multiple files")
         })
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         return null
     }
 }
@@ -128,7 +128,7 @@ export async function uploadImage() {
                 const timeoutId = setTimeout(rejectionHandler, 10_000)
                 return (reject) => {
                     clearTimeout(timeoutId)
-                    console.log('reject')
+                    // console.log('reject')
                     if (reject) {
                         reject('Open file timeout')
                     }
@@ -151,7 +151,7 @@ export async function uploadImage() {
             else reject("Don't select multiple files")
         })
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         return null
     }
 }

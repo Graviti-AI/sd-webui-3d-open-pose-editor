@@ -358,13 +358,13 @@ export class BodyEditor {
         this.renderer.dispose()
         this.outputRenderer.dispose()
 
-        console.log('BodyEditor disponse')
+        // console.log('BodyEditor disponse')
     }
 
     commandHistory: Command[] = []
     historyIndex = -1
     pushCommand(cmd: Command) {
-        console.log('pushCommand')
+        // console.log('pushCommand')
         if (this.historyIndex != this.commandHistory.length - 1)
             this.commandHistory = this.commandHistory.slice(
                 0,
@@ -437,7 +437,7 @@ export class BodyEditor {
     }
 
     Undo() {
-        console.log('Undo', this.historyIndex)
+        // console.log('Undo', this.historyIndex)
 
         if (this.historyIndex >= 0) {
             const cmd = this.commandHistory[this.historyIndex]
@@ -447,7 +447,7 @@ export class BodyEditor {
     }
 
     Redo() {
-        console.log('Redo', this.historyIndex)
+        // console.log('Redo', this.historyIndex)
 
         if (this.historyIndex < this.commandHistory.length - 1) {
             const cmd = this.commandHistory[this.historyIndex + 1]
@@ -810,11 +810,11 @@ export class BodyEditor {
         const name = intersectedObject ? intersectedObject.name : ''
         let obj: Object3D | null = intersectedObject
 
-        console.log(obj?.name)
+        // console.log(obj?.name)
 
         if (this.IsClick) {
             if (event.button === 2 || event.which === 3) {
-                console.log('Right mouse button released')
+                // console.log('Right mouse button released')
                 this.ContextMenuEventManager.TriggerEvent({
                     mouseX: x,
                     mouseY: y,
@@ -844,7 +844,7 @@ export class BodyEditor {
                 }
 
                 if (obj) {
-                    console.log(obj.name)
+                    // console.log(obj.name)
                     this.transformControl.setMode('translate')
                     this.transformControl.setSpace('world')
                     this.transformControl.attach(obj)
@@ -862,7 +862,7 @@ export class BodyEditor {
                 }
 
                 if (obj) {
-                    console.log(obj.name)
+                    // console.log(obj.name)
 
                     if (IsTranslate(obj.name)) {
                         this.transformControl.setMode('translate')
@@ -937,7 +937,7 @@ export class BodyEditor {
         const recoveryArr: Object3D[] = []
         this.scene.traverse((o) => {
             if (IsMask(o.name)) {
-                console.log(o.name)
+                // console.log(o.name)
                 o.visible = true
                 recoveryArr.push(o)
             }
@@ -1071,7 +1071,7 @@ export class BodyEditor {
 
         this.camera.near = Math.max(minDis - 20, 0)
         this.camera.far = Math.max(maxDis + 20, 20)
-        console.log('camera', this.camera.near, this.camera.far)
+        // console.log('camera', this.camera.near, this.camera.far)
 
         this.camera.updateProjectionMatrix()
         return () => {
@@ -1289,7 +1289,7 @@ export class BodyEditor {
 
         if (obj) {
             this.pushCommand(this.CreateRemoveBodyCommand(obj))
-            console.log(obj.name)
+            // console.log(obj.name)
             obj.removeFromParent()
             this.DetachTransfromControl()
         }

@@ -23,7 +23,7 @@ const postMessage = (
     target: MessageEvent['source'],
     origin = '*'
 ) => {
-    console.log('return', { target, origin, data })
+    // console.log('return', { target, origin, data })
     target?.postMessage(
         { cmd: 'openpose-3d', ...data },
         { targetOrigin: origin }
@@ -80,7 +80,7 @@ export default function useMessageDispatch(
             // It is invalid message, not from webui extension.
             if (type != 'call') return
 
-            console.log('method', method, payload)
+            // console.log('method', method, payload)
 
             if (payload && Array.isArray(payload) === false) {
                 console.error('payload is not array')
@@ -103,7 +103,7 @@ export default function useMessageDispatch(
                             payload: value,
                         })
                     } catch (error) {
-                        console.log(error)
+                        // console.log(error)
                     }
                     SEND_TO_SENDER = false
                 }

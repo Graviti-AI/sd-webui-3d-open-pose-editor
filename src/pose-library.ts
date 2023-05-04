@@ -18,7 +18,7 @@ export async function LoadPosesLibrary(posesLibraryUrl: string) {
     const response = await fetch(posesLibraryUrl)
     const buffer = await response.arrayBuffer()
 
-    console.log(buffer.byteLength)
+    // console.log(buffer.byteLength)
     const int16Array = new Int32Array(buffer)
 
     const num = Object.keys(PartIndexMappingOfPoseModel).length

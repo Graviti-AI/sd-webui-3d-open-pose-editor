@@ -94,10 +94,10 @@ const Slider2: React.FC<{
                         let v = parseFloat(inputValue)
                         if (isNaN(v)) throw 'Is NaN'
                         v = Math.max(Math.min(v, range[1]), range[0])
-                        console.log(v)
+                        // console.log(v)
                         onChange?.(v)
                     } catch (error) {
-                        console.log('invalid input')
+                        // console.log('invalid input')
                         setInputValue(value.toString())
                     }
                 }}
@@ -173,7 +173,7 @@ function GetBodyParamControlor(editor: BodyEditor) {
         oldValue: number,
         value: number
     ) {
-        console.log(oldValue, value)
+        // console.log(oldValue, value)
         const cmd = {
             execute: () => {
                 controlor[name] = value

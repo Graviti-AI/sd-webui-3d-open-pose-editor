@@ -1001,8 +1001,8 @@ export class BodyControlor {
         }
         o.traverse((child) => {
             if (child.name && IsBone(child.name)) {
-                if (child.name in result.child)
-                    console.log('Duplicate name', child.name, child)
+                // if (child.name in result.child)
+                //     console.log('Duplicate name', child.name, child)
                 const data: Pick<BodyData, 'position' | 'rotation' | 'scale'> =
                     {}
 
@@ -1066,8 +1066,8 @@ export class BodyControlor {
         }
         o.traverse((child) => {
             if (child.name && IsNeedSaveObject(child.name)) {
-                if (child.name in result.child)
-                    console.log('Duplicate name', child.name, child)
+                // if (child.name in result.child)
+                //     console.log('Duplicate name', child.name, child)
                 const data: Pick<BodyData, 'position' | 'rotation' | 'scale'> =
                     {}
 
