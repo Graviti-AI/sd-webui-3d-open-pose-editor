@@ -21,7 +21,7 @@ let isInitialized = false
 let isPaused = false
 
 onUiLoaded(async () => {
-    console.log('sd-webui-3d-open-pose-editor: onUiLoaded')
+    // console.log('sd-webui-3d-open-pose-editor: onUiLoaded')
 
     const sendToControlNet = async (
         container: Element,

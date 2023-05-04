@@ -18,11 +18,11 @@ export const InitMessageListener = () => {
         const { data } = event
         if (data && data.cmd && data.cmd == 'openpose-3d' && data.method) {
             const method = data.method
-            console.log('Method', method, event)
+            // console.log('Method', method, event)
             if (data.type == 'return') {
                 MessageReturnHandler[method]?.(data.payload)
             } else if (data.type == 'event') {
-                console.log(MessageEventHandler)
+                // console.log(MessageEventHandler)
                 MessageEventHandler[method]?.(data.payload)
             }
         }

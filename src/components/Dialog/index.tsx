@@ -94,7 +94,7 @@ export function GetDialog(wait = 0) {
 }
 
 export async function ShowDialog(props: ShowProps): Promise<string> {
-    console.log(props)
+    // console.log(props)
     return await NiceModal.show(MyDialog, props)
 }
 

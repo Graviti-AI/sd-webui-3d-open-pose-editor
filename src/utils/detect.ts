@@ -12,7 +12,7 @@ console.log('@mediapipe/pose', MediapipePose)
 const MyPose = import.meta.env.DEV
     ? MediapipePose.Pose
     : ((window as any).Pose as Class<Pose, [PoseConfig]>)
-console.log('MyPose', MyPose)
+// console.log('MyPose', MyPose)
 
 const AliyuncsBase =
     'https://openpose-editor.oss-cn-beijing.aliyuncs.com/%40mediapipe/pose'
@@ -31,12 +31,12 @@ export function SetCDNBase(isJsdelivrBase: boolean) {
 const pose = new MyPose({
     locateFile: (file) => {
         if (file in assets) {
-            console.log('local', file)
+            // console.log('local', file)
             return (assets as any)[file]
         }
         const url = `${GetCDNBase()}/${file}`
 
-        console.log('load pose model', url)
+        // console.log('load pose model', url)
         return url
     },
 })
@@ -56,7 +56,7 @@ export function DetectPosefromImage(image: HTMLImageElement): Promise<Results> {
         pose.reset()
         pose.send({ image: image })
         pose.onResults((result) => {
-            console.log(result)
+            // console.log(result)
             resolve(result)
         })
     })
