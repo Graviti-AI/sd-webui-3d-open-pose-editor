@@ -4,7 +4,7 @@ import os.path
 import pathlib
 import typing
 import urllib.parse
-
+from modules.paths import script_path
 import gradio as gr
 
 try:
@@ -14,7 +14,6 @@ except NameError:
 
     root_path = pathlib.Path(inspect.getfile(lambda: None)).resolve().parents[1]
 
-
 def get_asset_url(
     file_path: pathlib.Path, append: typing.Optional[dict[str, str]] = None
 ) -> str:
@@ -23,7 +22,7 @@ def get_asset_url(
     else:
         append = append.copy()
         append["v"] = str(os.path.getmtime(file_path))
-    return f"/file={file_path.absolute()}?{urllib.parse.urlencode(append)}"
+    return f"/file={file_path.relative_to(script_path)}?{urllib.parse.urlencode(append)}"
 
 
 def write_config_file() -> pathlib.Path:
