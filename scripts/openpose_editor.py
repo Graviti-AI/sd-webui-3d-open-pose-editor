@@ -23,7 +23,7 @@ def get_asset_url(
     else:
         append = append.copy()
         append["v"] = str(os.path.getmtime(file_path))
-    return f"/file={file_path.absolute()}?{urllib.parse.urlencode(append)}"
+    return f"file={file_path.absolute()}?{urllib.parse.urlencode(append)}"
 
 
 def write_config_file() -> pathlib.Path:
